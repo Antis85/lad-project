@@ -9,7 +9,9 @@ import CartInfo from './info/CartInfo';
 import { fetchPostCartSuccess } from '../../store/SliceCart';
 import { fetchPostOrder } from '../../api/index';
 import { nanoid } from 'nanoid';
-
+/** 
+ * Страница корзины и оформления заказа
+*/
 export default function Cart({ setCart, setOwner }) {
   const { items, owner, loading, error, success } = useSelector(
     (state) => state.cart
@@ -21,16 +23,12 @@ export default function Cart({ setCart, setOwner }) {
   });
   const dispatch = useDispatch();
 
-  /**
-   * Проброс телефона/адреса из локалсториджа в форму
-   **/
+  //Проброс телефона/адреса из локалсториджа в форму
   useEffect(() => {
     setForm(owner);
   }, [owner]);
 
-  /**
-   * Debounce сохранения телефона/адреса из формы в локалсторидж
-   **/
+  //Debounce сохранения телефона/адреса из формы в локалсторидж
   useEffect(() => {
     const handler = setTimeout(() => {
       setOwner(form);
@@ -40,9 +38,7 @@ export default function Cart({ setCart, setOwner }) {
     };
   }, [form, setOwner]);
 
-  /**
-   * Снимаем success=true после "выхода" из корзины после успешного заказа
-   **/
+  // Снимаем success=true после "выхода" из корзины после успешного заказа
   useEffect(() => {
     return () => {
       success && dispatch(fetchPostCartSuccess(false));
@@ -57,18 +53,16 @@ export default function Cart({ setCart, setOwner }) {
     event.preventDefault();
     if (!isConfirmed || !form?.phone || !form?.address || !items?.length)
       return;
-    // console.log('handleOrderSubmit');
+
     dispatch(fetchPostOrder(setCart, setOwner));
   };
 
-  const handleCheckboxChange = () => {
-    // console.log('event.target.checked: ', event.target.checked);
+  const handleCheckboxChange = () => { 
     setConfirm(() => !isConfirmed);
   };
 
   const handleFormChange = (event) => {
     const { id, value } = event.target;
-    // console.log({ id, value });
     setForm((prevForm) => ({ ...prevForm, [id]: value }));
   };
 
@@ -101,9 +95,7 @@ export default function Cart({ setCart, setOwner }) {
   const submitOrderDisable = !isConfirmed;
   const successText = 'Благодарим за заказ! Продолжим покупки?';
   const emptyCartText = 'В корзине нет товаров.';
-  // console.log('CartContent_info: ', info);
-  // console.log('CartContent_loading: ', loading);
-  console.log('CartContent_success: ', success);
+
   return (
     <>
       {(loading && <Loader />) ||

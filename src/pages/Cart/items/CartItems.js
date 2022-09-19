@@ -1,5 +1,7 @@
 import React from 'react';
-
+/** 
+ * Позиции товаров в корзине
+*/
 export default function CartItems({ cartTableItems, totalCost }) {
   return (
     <section className="cart">

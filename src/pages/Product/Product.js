@@ -4,7 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchGetProduct } from '../../api/index';
 import Loader from '../../components/loader/Loader';
 import styles from './Product.module.css';
-
+/** 
+ * Отображение товара для добавления в корзину
+ * Выбор размера и количества товара
+*/
 export default function Product({ setCart }) {
   const { product, loading, error } = useSelector(
     (state) => state.product
@@ -76,8 +79,8 @@ export default function Product({ setCart }) {
   const imgSrcAttr = images?.[0];
 
   const sizesElement = sizes?.map(
-    ({ size, avalible }) =>
-      avalible && (
+    ({ size, available }) =>
+      available && (
         <span
           key={size}
           className={

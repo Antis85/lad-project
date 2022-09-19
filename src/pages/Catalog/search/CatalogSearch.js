@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import styles from './CatalogSearch.module.css';
-
+/** 
+ * Форма поиска по каталогу
+*/
 export default function CatalogSearch({ handleSearch }) {
   const [form, setForm] = useState({ search: '' });
   const {

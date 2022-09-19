@@ -40,7 +40,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/404" element={<Page404 />} />
-          <Route path="/ra-diplom" element={<Main />} />
+          <Route path="/lad-project" element={<Main />} />
           <Route path="/" element={<Main />} />
           <Route path="*" element={<Page404 />} />
         </Routes>

@@ -3,7 +3,9 @@ import { NavLink } from 'react-router-dom';
 import headerLogo from '../../img/header-logo.png';
 import HeaderMenu from './menu/HeaderMenu';
 import PageHeaderWidget from './widget/PageHeaderWidget';
-
+/** 
+ * Компонент хедера страницы
+*/
 export default function PageHeader() {
   return (
     <header className="container">

@@ -22,6 +22,9 @@ import {
 
 const url = process.env.REACT_APP_API_URL_BUILD;
 
+/** 
+ * Загрузка раздела "Хиты продаж"
+*/
 export const fetchGetTopSales = () => (dispatch) => {
   dispatch(fetchTopSalesRequest());
   return fetch(`${url}/top-sales`)
@@ -39,6 +42,9 @@ export const fetchGetTopSales = () => (dispatch) => {
     });
 };
 
+/** 
+ * Загрузка категорий раздела "Каталог"
+*/
 export const fetchGetCatalogCategories = () => (dispatch) => {
   dispatch(fetchCatalogRequest());
   return fetch(`${url}/categories`)
@@ -56,6 +62,10 @@ export const fetchGetCatalogCategories = () => (dispatch) => {
     });
 };
 
+/** 
+ * Загрузка товаров раздела "Каталог" с фильтром по категориям,
+ * поисковому запросу и подгрузка дополнительных товаров каталога
+*/
 export const fetchGetCatalogContent = (categoryId, q, offset) => (dispatch) => {
   dispatch(fetchCatalogRequest());
   const apiUrl = `${url}/items`;
@@ -81,6 +91,9 @@ export const fetchGetCatalogContent = (categoryId, q, offset) => (dispatch) => {
     });
 };
 
+/** 
+ * Загрузка информации по товару для добавления в заказ
+*/
 export const fetchGetProduct = (id) => (dispatch) => {
   dispatch(fetchGetProductRequest());
   const apiUrl = `${url}/items`;
@@ -100,6 +113,9 @@ export const fetchGetProduct = (id) => (dispatch) => {
     });
 };
 
+/** 
+ * Оформление заказа в корзине
+*/
 export const fetchPostOrder = (setCart, setOwner) => (dispatch, getState) => {
   const {
     cart: { items, owner },

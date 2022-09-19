@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-
+/** 
+ * Хук для работы с localStorage
+*/
 export default function useStorage(storage, key, jsonify = false) {
   const [value, setValue] = useState(
     jsonify ? JSON.parse(storage.getItem(key)) : storage.getItem(key)

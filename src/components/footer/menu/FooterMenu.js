@@ -2,7 +2,9 @@ import React from 'react';
 import MenuList from '../../menu/list/MenuList';
 import MenuListItem from '../../menu/item/MenuListItem';
 import MenuItemLink from '../../menu/link/MenuItemLink';
-
+/** 
+ * Компонент меню для футера страницы
+*/
 const menuItemsFooter = [
   {
     route: '/about',

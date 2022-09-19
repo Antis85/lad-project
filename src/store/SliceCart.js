@@ -14,12 +14,10 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     setCartItems(state, action) {
-      console.log('cartSlice_items: ', action.payload);
       state.items = action.payload || initialState.items;
       state.counter = action.payload?.length || initialState.counter;
     },
     setCartOwner(state, action) {
-      console.log('cartSlice_owner: ', action.payload);
       state.owner = action.payload || initialState.owner;
     },
     fetchPostCartRequest(state) {
@@ -28,10 +26,7 @@ const cartSlice = createSlice({
       state.success = false;
     },
     fetchPostCartSuccess(state, action) {
-      console.log('cartSlice_success: ', action.payload);
       Object.assign(state, initialState, {success: action.payload});
-      console.log('cartSlice_success_state.owner: ', state.owner);
-      console.log('{...initialState, success: action.payload}: ', {...initialState, success: action.payload});
     },
     fetchPostCartFailed(state, action) {
       state.loading = false;

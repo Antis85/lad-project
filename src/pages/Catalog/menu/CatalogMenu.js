@@ -3,7 +3,9 @@ import MenuList from '../../../components/menu/list/MenuList';
 import MenuListItem from '../../../components/menu/item/MenuListItem';
 import CatalogMenuItemLink from './item_link/CatalogMenuItemLink';
 import styles from './CatalogMenu.module.css';
-
+/** 
+ * Меню фильтров товаров каталога по категориям
+*/
 export default function CatalogMenu({ menuItems, categoryId, handleSelect }) {
   const hrefAttr = '#';
   return (

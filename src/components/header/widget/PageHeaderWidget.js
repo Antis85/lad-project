@@ -5,7 +5,9 @@ import HeaderSearch from './search/HeaderSearch';
 import HeaderCart from './cart/HeaderCart';
 import { catalogSearchChange } from '../../../store/SliceCatalog';
 import styles from './PageHeaderWidget.module.css';
-
+/** 
+ * Компонент поиска и корзины для хедера страницы
+*/
 export default function PageHeaderWidget() {
   const [invisible, setInvisible] = useState(true);
   const [form, setForm] = useState({ search: '' });

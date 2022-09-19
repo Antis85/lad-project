@@ -20,23 +20,27 @@ const catalogSlice = createSlice({
     },
     fetchCatalogCategoriesSuccess(state, action) {
       state.loading = false;
-      state.categories = action.payload;
+      state.categories = action.payload;     
     },
     fetchCatalogContentSuccess(state, action) {
       state.loading = false;
-      state.content = action.payload;
+      if (state.offset > 0) state.content = [...state.content, ...action.payload];
+      if (state.offset <= 0) state.content = action.payload;
+      if(action.payload.length < 6) state.offset = -1;
     },
     fetchCatalogFailed(state, action) {
       state.loading = false;
-      state.error = action.payload;
+      state.error = action.payload;      
     },
     catalogCategoryChange(state, action) {
       state.activeCategoryId = action.payload;
       state.offset = initialState.offset;
+      state.content = initialState.content;
     },
     catalogSearchChange(state, action) {
       state.search = action.payload;
       state.offset = initialState.offset;
+      state.content = initialState.content;
     },
     catalogOffsetChange(state) {
       state.offset = state.offset + 6;

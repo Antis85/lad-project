@@ -1,5 +1,7 @@
 import React from 'react';
-
+/** 
+ * Кнопка для загрузки следующих товаров каталога
+*/
 export default function ButtonOffset({ handleOffset }) {
   return (
     <div className="text-center">

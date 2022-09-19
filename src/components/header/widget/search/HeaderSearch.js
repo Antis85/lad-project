@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './HeaderSearch.module.css';
-
+/** 
+ * Компонент поиска для хедера страницы
+*/
 export default function HeaderSearch({ invisible, form, handleChange }) {
   const inputRef = useRef();
 

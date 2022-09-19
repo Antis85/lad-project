@@ -1,7 +1,9 @@
 import React from 'react';
 import FooterMenu from './menu/FooterMenu';
 import styles from './PageFooter.module.css';
-
+/** 
+ * Компонент для футера страницы
+*/
 export default function PageFooter() {
   return (
     <footer className={`container bg-light ${styles.footer}`}>   

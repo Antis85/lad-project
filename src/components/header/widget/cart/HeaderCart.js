@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './HeaderCart.module.css';
-
+/** 
+ * Компонент корзины для хедера страницы
+*/
 export default function HeaderCart({ counter, handleNavigateCart }) {
   return (
     <div

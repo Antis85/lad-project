@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './Contacts.module.css';
-
+/** 
+ * Страница контактов
+*/
 export default function Contacts() {
   return (
     <section className={styles.contacts}>

@@ -5,7 +5,9 @@ import Loader from '../loader/Loader';
 import Error from '../error/Error';
 import { fetchGetTopSales } from '../../api/index';
 import styles from './Topsales.module.css';
-
+/** 
+ * Компонент "Хиты продаж" для главной страницы
+*/
 export default function Topsales() {
   const { topSales, loading, error } = useSelector(
     (state) => state.topSales
@@ -15,8 +17,6 @@ export default function Topsales() {
   useEffect(() => {
     dispatch(fetchGetTopSales());
   }, [dispatch]);
-
-  // console.log('TopsalesContent_topSales: ', topSales);
 
   const topSalesCards = topSales.map((cardProps) => (
     <SectionCard key={cardProps.id} {...cardProps} />

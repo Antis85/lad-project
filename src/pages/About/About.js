@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './About.module.css';
-
+/** 
+ * Страница о магазине
+*/
 export default function About() {
   return (
     <section className={styles.about}>

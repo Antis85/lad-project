@@ -16,7 +16,10 @@ import {
   fetchGetCatalogContent,
 } from '../../api/index';
 import styles from './Catalog.module.css';
-
+/** 
+ * Страница каталога
+ * Отображение товаров из каталога, фильтр по категориям и поиск товара
+*/
 export default function Catalog({ nosearch }) {
   const {
     content,
@@ -34,8 +37,14 @@ export default function Catalog({ nosearch }) {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchGetCatalogContent(activeCategoryId, search, offset));
+    if (offset >= 0)
+      dispatch(fetchGetCatalogContent(activeCategoryId, search, offset));
   }, [dispatch, activeCategoryId, search, offset]);
+
+  // сброс state.content для SliceCatalog
+  useEffect(() => {
+    return () => dispatch(catalogCategoryChange(0));
+  }, [dispatch]);
 
   const menuItems = [
     {
@@ -53,7 +62,7 @@ export default function Catalog({ nosearch }) {
   };
 
   const handleOffset = () => {
-    dispatch(catalogOffsetChange());
+    if(offset >= 0) dispatch(catalogOffsetChange());
   };
 
   const handleSearch = (searchString) => {
@@ -69,20 +78,25 @@ export default function Catalog({ nosearch }) {
   return (
     <section className={styles.catalog}>
       <h2 className="text-center">Каталог</h2>
-      {(loading && <Loader />) || (error && <Error errorText={error} />) || (
+      {(error && <Error errorText={error} />) || (
         <>
-          {nosearch ? null : <CatalogSearch handleSearch={handleSearch} />}
-          <CatalogMenu
-            menuItems={menuItems}
-            categoryId={activeCategoryId}
-            handleSelect={handleSelect}
-          />
+          {!loading && (
+            <>
+              {nosearch ? null : <CatalogSearch handleSearch={handleSearch} />}
+              <CatalogMenu
+                menuItems={menuItems}
+                categoryId={activeCategoryId}
+                handleSelect={handleSelect}
+              />
+            </>
+          )}
           <div className="row">
             {catalogCards.length
               ? catalogCards
-              : search && <Error errorText={badSearchPropValue} />}
+              : !loading && search && <Error errorText={badSearchPropValue} />}
           </div>
-          {catalogCards.length >= 6 ? (
+          {loading && <Loader />}
+          {offset >= 0 && catalogCards.length >= 6 ? (
             <ButtonOffset handleOffset={handleOffset} />
           ) : null}
         </>

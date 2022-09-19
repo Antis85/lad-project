@@ -1,5 +1,7 @@
 import React from 'react';
-
+/** 
+ * Страница 404
+*/
 export default function Page404() {
   return (
     <>

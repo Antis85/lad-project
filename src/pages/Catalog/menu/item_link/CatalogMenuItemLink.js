@@ -1,6 +1,8 @@
 import React from 'react';
 import { useMatch } from 'react-router-dom';
-
+/** 
+ * Элемент меню категорий
+*/
 export default function CatalogMenuItemLink({
   hrefAttr,
   className,

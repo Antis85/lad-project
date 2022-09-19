@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './CartInfo.module.css';
-
+/** 
+ * Оформление заказа в корзине
+*/
 export default function CartInfo({
   form,
   handleFormChange,
@@ -13,7 +15,7 @@ export default function CartInfo({
       <h2 className="text-center">Оформить заказ</h2>
       <div className={styles.card}>
         <form className={styles['card-body']} onSubmit={handleOrderSubmit}>
-          <div className="form-group">
+          <div className={`${styles.input} form-group`}>
             <label htmlFor="phone">Телефон</label>
             <input
               className="form-control"
@@ -24,7 +26,7 @@ export default function CartInfo({
               value={form.phone}
             />
           </div>
-          <div className="form-group">
+          <div className={`${styles.input} form-group`}>
             <label htmlFor="address">Адрес доставки</label>
             <input
               className="form-control"

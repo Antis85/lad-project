@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './SectionCard.module.css';
-
+/** 
+ * Компонент карточки товара для разделов "Хиты продаж" и "Каталог"
+*/
 export default function SectionCard({
   id,
   title,
