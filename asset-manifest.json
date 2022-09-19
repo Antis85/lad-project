@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/lad-project/static/css/main.c0a63366.chunk.css",
+    "main.js": "/lad-project/static/js/main.0430cab8.chunk.js",
+    "main.js.map": "/lad-project/static/js/main.0430cab8.chunk.js.map",
+    "runtime-main.js": "/lad-project/static/js/runtime-main.703ec4ef.js",
+    "runtime-main.js.map": "/lad-project/static/js/runtime-main.703ec4ef.js.map",
+    "static/js/2.b60e6fab.chunk.js": "/lad-project/static/js/2.b60e6fab.chunk.js",
+    "static/js/2.b60e6fab.chunk.js.map": "/lad-project/static/js/2.b60e6fab.chunk.js.map",
+    "index.html": "/lad-project/index.html",
+    "static/css/main.c0a63366.chunk.css.map": "/lad-project/static/css/main.c0a63366.chunk.css.map",
+    "static/js/2.b60e6fab.chunk.js.LICENSE.txt": "/lad-project/static/js/2.b60e6fab.chunk.js.LICENSE.txt",
+    "static/media/banner.5fd2c60d.jpg": "/lad-project/static/media/banner.5fd2c60d.jpg",
+    "static/media/PageFooter.module.css": "/lad-project/static/media/footer-sprite.b3d5697a.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.703ec4ef.js",
+    "static/js/2.b60e6fab.chunk.js",
+    "static/css/main.c0a63366.chunk.css",
+    "static/js/main.0430cab8.chunk.js"
+  ]
+}
